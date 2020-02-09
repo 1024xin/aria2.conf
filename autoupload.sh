@@ -53,7 +53,12 @@ Upload(){
     [ -e "${filepath}".aria2 ] && rm -vf "${filepath}".aria2
 }
 
-if [ $2 -eq 0 ]
+if [ -z $2 ]
+    then
+        echo && echo "[ERROR] This script can only be used by passing parameters through Aria2."
+        echo && echo "[JOKE] 直接运行此脚本可能导致无法开机！"
+        exit 1
+elif [ $2 -eq 0 ]
     then
         exit 0
 fi
